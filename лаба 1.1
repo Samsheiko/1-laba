@@ -1,0 +1,17 @@
+﻿open System 
+
+let cheack number = 
+    [
+    for i in 1.. number do 
+        printf "Введите число"
+        let number = int(Console.ReadLine())
+        if (number % 2)= 0 
+        then yield "1"
+        else yield "0"
+    ]
+[<EntryPoint>]
+let main args = 
+    printf "введите кол-во чисел"
+    let number = int(Console.ReadLine())
+    printf "Spisok: %A" (cheack number)
+    0// Возвращаем код завершенияния
