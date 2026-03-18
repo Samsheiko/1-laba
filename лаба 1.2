@@ -1,0 +1,22 @@
+﻿open System 
+
+let rec del number = 
+    [
+        if number < 10 then 
+            if number % 2 = 0 then
+                yield number 
+        else 
+            let lastnumber = number % 10 
+            let ostnumber = del(number / 10)
+            yield! ostnumber
+            if number % 2 = 0 then
+                yield lastnumber
+
+    ]
+[<EntryPoint>]
+let main args = 
+    printfn "введите число"
+    let number = int(Console.ReadLine())
+    printf "Spisol: %A" (del number)
+
+    0
